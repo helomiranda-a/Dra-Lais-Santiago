@@ -1,1090 +1,1728 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Dra. Laís Santiago | Estética e Harmonização em São Paulo</title>
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-<style>
-
-:root{
-    --nude:#E3C2B0;
-    --cream:#FAFAFA;
-    --wine:#6B1426;
-    --gold:#C5A059;
-    --navy:#182338;
-    --dark:#2A2021;
-    --white:#FFFFFF;
-}
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
-
-html{
-    scroll-behavior:smooth;
-}
-
-body{
-    background:var(--cream);
-    color:var(--dark);
-    font-family:'Montserrat',sans-serif;
-    overflow-x:hidden;
-}
-
-a{
-    text-decoration:none;
-}
-
-/* =========================
-   HEADER
-========================= */
-
-header{
-    position:absolute;
-    top:0;
-    left:0;
-    width:100%;
-    z-index:20;
-
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-
-    padding:25px 7%;
-}
-
-.logo{
-    font-family:'Cormorant Garamond',serif;
-    font-size:29px;
-    font-weight:600;
-    color:white;
-}
-
-.logo span{
-    color:var(--gold);
-}
-
-nav{
-    display:flex;
-    gap:35px;
-}
-
-nav a{
-    color:white;
-    font-size:10px;
-    letter-spacing:2px;
-    text-transform:uppercase;
-    transition:.3s;
-}
-
-nav a:hover{
-    color:var(--gold);
-}
-
-/* =========================
-   HERO
-========================= */
-
-.hero{
-    min-height:100vh;
-    position:relative;
-
-    display:flex;
-    align-items:center;
-
-    /*
-    COLOQUE A FOTO DA DOUTORA NO LUGAR DE:
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Dra. Laís Santiago | Estética e Harmonização</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet">
+
+    <style>
+
+        :root {
+            --nude: #E3C2B0;
+            --off-white: #FAFAFA;
+            --wine: #6B1426;
+            --gold: #C5A059;
+            --dark: #32171D;
+            --muted: #796B6D;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: var(--off-white);
+            color: var(--dark);
+            font-family: "DM Sans", sans-serif;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* ==============================
+           ANIMAÇÕES
+        ============================== */
+
+        @keyframes floating {
+            0%, 100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-12px);
+            }
+        }
+
+        @keyframes appear {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(107, 20, 38, .25);
+            }
+
+            70% {
+                box-shadow: 0 0 0 15px rgba(107, 20, 38, 0);
+            }
+
+            100% {
+                box-shadow: 0 0 0 0 rgba(107, 20, 38, 0);
+            }
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: 1s ease;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ==============================
+           HEADER
+        ============================== */
+
+        header {
+            position: fixed;
+            top: 16px;
+            left: 50%;
+            transform: translateX(-50%);
 
-    foto-da-doutora.jpg
-    */
+            width: min(1120px, 92%);
+            height: 70px;
 
-    background-image:
-        linear-gradient(
-            90deg,
-            rgba(42,20,22,.91) 0%,
-            rgba(42,20,22,.70) 43%,
-            rgba(42,20,22,.15) 75%,
-            rgba(42,20,22,.18) 100%
-        ),
-        url("foto-da-doutora.jpg");
+            padding: 0 22px;
 
-    background-size:cover;
-    background-position:center;
-}
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
 
-.hero-content{
-    width:90%;
-    max-width:1250px;
-    margin:auto;
+            background: rgba(250, 250, 250, .88);
+            backdrop-filter: blur(18px);
 
-    padding-top:90px;
-}
+            border: 1px solid rgba(107, 20, 38, .08);
 
-.hero-small{
-    color:var(--gold);
-    font-size:10px;
-    letter-spacing:4px;
-    text-transform:uppercase;
-    font-weight:600;
+            border-radius: 25px;
 
-    margin-bottom:25px;
+            box-shadow: 0 15px 45px rgba(53, 11, 22, .08);
 
-    animation:fadeUp 1s ease;
-}
+            z-index: 999;
+        }
 
-.hero h1{
-    max-width:780px;
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
 
-    color:white;
+        .logo-symbol {
+            width: 40px;
+            height: 40px;
 
-    font-family:'Cormorant Garamond',serif;
-    font-size:clamp(55px,7vw,95px);
-    line-height:.9;
-    font-weight:500;
+            display: flex;
+            align-items: center;
+            justify-content: center;
 
-    animation:fadeUp 1.1s ease;
-}
+            background: var(--wine);
+            color: white;
 
-.hero h1 span{
-    color:var(--nude);
-}
+            border-radius: 14px 20px 14px 20px;
 
-.hero-description{
-    max-width:610px;
+            font-family: "Playfair Display", serif;
+        }
 
-    margin-top:30px;
+        .logo-name {
+            color: var(--wine);
+            font-family: "Playfair Display", serif;
+            font-size: 19px;
+        }
 
-    color:rgba(255,255,255,.87);
+        .nav {
+            display: flex;
+            gap: 25px;
+        }
 
-    font-size:14px;
-    line-height:1.9;
+        .nav a {
+            color: var(--muted);
+            font-size: 9px;
+            transition: .3s;
+        }
 
-    animation:fadeUp 1.3s ease;
-}
+        .nav a:hover {
+            color: var(--wine);
+        }
 
-.hero-description strong{
-    color:white;
-}
+        .header-button {
+            padding: 12px 19px;
 
-.hero-buttons{
-    display:flex;
-    gap:14px;
-    flex-wrap:wrap;
+            background: var(--wine);
+            color: white;
 
-    margin-top:35px;
+            border-radius: 100px;
 
-    animation:fadeUp 1.5s ease;
-}
+            font-size: 8px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
 
-.btn{
-    min-height:54px;
+            transition: .3s;
+        }
 
-    display:inline-flex;
-    align-items:center;
-    justify-content:center;
+        .header-button:hover {
+            transform: translateY(-3px);
+        }
 
-    padding:0 29px;
+        /* ==============================
+           HERO
+        ============================== */
 
-    font-size:10px;
-    font-weight:700;
-    letter-spacing:1.5px;
-    text-transform:uppercase;
+        .hero {
+            min-height: 100vh;
 
-    transition:.35s;
-}
+            padding: 140px 6% 80px;
 
-.btn-wine{
-    background:var(--wine);
-    color:white;
+            display: grid;
+            grid-template-columns: .9fr 1.1fr;
 
-    box-shadow:0 12px 30px rgba(107,20,38,.25);
-}
+            align-items: center;
 
-.btn-wine:hover{
-    background:#841b32;
-    transform:translateY(-3px);
-}
+            gap: 50px;
 
-.btn-light{
-    border:1px solid rgba(255,255,255,.5);
-    color:white;
-}
+            position: relative;
+        }
 
-.btn-light:hover{
-    background:white;
-    color:var(--wine);
-}
+        .hero::before {
+            content: "";
 
-/* =========================
-   FLOATING STATS
-========================= */
+            position: absolute;
 
-.stats{
-    position:absolute;
-    bottom:0;
-    right:7%;
+            width: 500px;
+            height: 500px;
 
-    display:flex;
+            background: var(--nude);
 
-    background:rgba(255,255,255,.96);
+            opacity: .25;
 
-    box-shadow:0 15px 50px rgba(0,0,0,.12);
-}
+            border-radius: 50%;
 
-.stat{
-    padding:25px 35px;
-    min-width:160px;
+            left: -300px;
+            bottom: -250px;
 
-    text-align:center;
+            z-index: -1;
+        }
 
-    border-right:1px solid rgba(107,20,38,.12);
-}
+        .tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
 
-.stat:last-child{
-    border:none;
-}
+            padding: 9px 14px;
 
-.stat strong{
-    display:block;
+            background: #F4E7E1;
 
-    color:var(--wine);
+            border-radius: 100px;
 
-    font-family:'Cormorant Garamond',serif;
-    font-size:35px;
-}
+            color: var(--wine);
 
-.stat span{
-    color:#777;
+            font-size: 8px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+        }
 
-    font-size:9px;
-    letter-spacing:1.5px;
-    text-transform:uppercase;
-}
+        .tag-dot {
+            width: 6px;
+            height: 6px;
 
-/* =========================
-   INTRO
-========================= */
+            border-radius: 50%;
 
-.intro{
-    padding:125px 8%;
+            background: var(--gold);
 
-    display:grid;
-    grid-template-columns:1fr 1.2fr;
-    gap:90px;
+            animation: pulse 2.5s infinite;
+        }
 
-    align-items:center;
+        .hero h1 {
+            margin-top: 27px;
 
-    background:var(--cream);
-}
+            color: var(--wine);
 
-.intro-label{
-    color:var(--wine);
+            font-family: "Playfair Display", serif;
 
-    font-size:10px;
-    letter-spacing:3px;
-    text-transform:uppercase;
-    font-weight:700;
-}
+            font-size: clamp(60px, 7vw, 105px);
 
-.intro h2{
-    margin-top:18px;
+            line-height: .88;
 
-    color:var(--navy);
+            font-weight: 500;
 
-    font-family:'Cormorant Garamond',serif;
-    font-size:clamp(45px,5vw,70px);
-    font-weight:500;
-    line-height:.95;
-}
+            letter-spacing: -3px;
+        }
 
-.intro-text{
-    color:#686164;
+        .hero h1 span {
+            color: var(--gold);
+            font-style: italic;
+        }
 
-    font-size:14px;
-    line-height:2;
+        .hero-description {
+            max-width: 500px;
 
-    max-width:600px;
-}
+            margin-top: 30px;
 
-.gold-line{
-    width:65px;
-    height:1px;
+            color: var(--muted);
 
-    margin:28px 0;
+            font-size: 12px;
 
-    background:var(--gold);
-}
+            line-height: 1.9;
+        }
 
-/* =========================
-   SERVIÇOS
-========================= */
+        .hero-description strong {
+            color: var(--wine);
+        }
 
-.services{
-    padding:110px 8%;
+        .hero-actions {
+            display: flex;
+            align-items: center;
 
-    background:#F4E9E4;
-}
+            gap: 20px;
 
-.section-heading{
-    max-width:700px;
-    margin-bottom:55px;
-}
+            margin-top: 32px;
+        }
 
-.section-label{
-    color:var(--wine);
+        .primary-button {
+            display: flex;
+            align-items: center;
+            gap: 15px;
 
-    font-size:10px;
-    letter-spacing:3px;
-    text-transform:uppercase;
-    font-weight:700;
-}
+            padding: 17px 20px;
 
-.section-heading h2{
-    margin-top:15px;
+            background: var(--wine);
+            color: white;
 
-    color:var(--navy);
+            border-radius: 100px;
 
-    font-family:'Cormorant Garamond',serif;
-    font-size:clamp(45px,5vw,70px);
-    font-weight:500;
-    line-height:.95;
-}
+            font-size: 8px;
 
-.section-heading p{
-    margin-top:20px;
+            letter-spacing: 1px;
 
-    color:#756d6e;
+            text-transform: uppercase;
 
-    font-size:13px;
-    line-height:1.8;
-}
+            transition: .3s;
+        }
 
-.service-grid{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:20px;
-}
+        .primary-button:hover {
+            transform: translateY(-4px);
 
-.service{
-    position:relative;
+            box-shadow: 0 15px 35px rgba(107, 20, 38, .22);
+        }
 
-    min-height:290px;
+        .primary-button span {
+            width: 25px;
+            height: 25px;
 
-    padding:40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
 
-    background:white;
+            border-radius: 50%;
 
-    border:1px solid rgba(197,160,89,.25);
+            background: rgba(255,255,255,.15);
+        }
 
-    overflow:hidden;
+        .secondary-button {
+            color: var(--wine);
 
-    transition:.4s;
-}
+            font-size: 9px;
 
-.service:hover{
-    transform:translateY(-8px);
+            border-bottom: 1px solid var(--gold);
 
-    box-shadow:0 25px 55px rgba(107,20,38,.12);
-}
+            padding-bottom: 5px;
+        }
 
-.service-number{
-    color:var(--gold);
+        /* ==============================
+           FOTO DA DOUTORA
+        ============================== */
 
-    font-family:'Cormorant Garamond',serif;
-    font-size:23px;
-}
+        .hero-image-area {
+            height: 650px;
 
-.service h3{
-    margin-top:55px;
+            position: relative;
+        }
 
-    color:var(--wine);
+        .doctor-image {
+            position: absolute;
 
-    font-family:'Cormorant Garamond',serif;
-    font-size:34px;
-    font-weight:500;
-}
+            width: 76%;
+            height: 92%;
 
-.service p{
-    margin-top:12px;
+            right: 5%;
+            top: 2%;
 
-    color:#777;
+            overflow: hidden;
 
-    font-size:12px;
-    line-height:1.8;
-}
+            background: var(--nude);
 
-.service::after{
-    content:"";
+            border-radius: 48% 48% 35px 48%;
 
-    position:absolute;
+            box-shadow: 25px 25px 0 rgba(227, 194, 176, .4);
 
-    width:110px;
-    height:110px;
+            animation: floating 5s ease-in-out infinite;
+        }
 
-    border:1px solid rgba(197,160,89,.3);
+        .doctor-image img {
+            width: 100%;
+            height: 100%;
 
-    border-radius:50%;
+            object-fit: cover;
+        }
 
-    right:-50px;
-    bottom:-50px;
-}
+        .doctor-placeholder {
+            width: 100%;
+            height: 100%;
 
-/* =========================
-   GALERIA
-========================= */
+            display: flex;
+            align-items: center;
+            justify-content: center;
 
-.gallery{
-    padding:120px 8%;
+            text-align: center;
 
-    background:white;
-}
+            background: linear-gradient(
+                145deg,
+                #F1D9D0,
+                #D2A797
+            );
+        }
 
-.gallery-top{
-    display:flex;
-    justify-content:space-between;
-    align-items:end;
+        .doctor-placeholder-content {
+            width: 65%;
 
-    gap:30px;
+            padding: 55px 20px;
 
-    margin-bottom:45px;
-}
+            border: 1px solid rgba(107, 20, 38, .35);
 
-.gallery-title{
-    max-width:650px;
-}
+            border-radius: 45% 45% 25px 45%;
 
-.gallery-title h2{
-    margin-top:15px;
+            color: var(--wine);
+        }
 
-    color:var(--navy);
+        .doctor-placeholder-content strong {
+            display: block;
 
-    font-family:'Cormorant Garamond',serif;
-    font-size:clamp(45px,5vw,68px);
-    font-weight:500;
-    line-height:.95;
-}
+            color: var(--gold);
 
-.gallery-title p{
-    margin-top:18px;
+            font-family: "Playfair Display", serif;
 
-    color:#777;
+            font-size: 50px;
+        }
 
-    font-size:13px;
-    line-height:1.8;
-}
+        .doctor-placeholder-content span {
+            font-size: 8px;
+            letter-spacing: 1.5px;
+        }
 
-/* CARROSSEL */
+        .experience-card {
+            position: absolute;
 
-.carousel-wrapper{
-    position:relative;
-}
+            left: 0;
+            bottom: 70px;
 
-.carousel{
-    display:flex;
-    gap:20px;
+            width: 215px;
 
-    overflow-x:auto;
+            padding: 22px;
 
-    scroll-behavior:smooth;
+            background: rgba(250,250,250,.94);
 
-    scrollbar-width:none;
+            backdrop-filter: blur(15px);
 
-    padding:10px 0 25px;
-}
+            border-radius: 27px;
 
-.carousel::-webkit-scrollbar{
-    display:none;
-}
+            box-shadow: 0 20px 45px rgba(0,0,0,.1);
 
-.photo-card{
-    position:relative;
+            animation: floating 4s ease-in-out infinite reverse;
+        }
 
-    min-width:340px;
-    height:450px;
+        .experience-card small {
+            color: var(--gold);
 
-    overflow:hidden;
+            font-size: 7px;
 
-    background:#eee;
+            letter-spacing: 2px;
 
-    flex-shrink:0;
-}
+            text-transform: uppercase;
+        }
 
-.photo-card img{
-    width:100%;
-    height:100%;
+        .experience-card strong {
+            display: block;
 
-    object-fit:cover;
+            margin-top: 7px;
 
-    transition:.6s;
-}
+            color: var(--wine);
 
-.photo-card:hover img{
-    transform:scale(1.05);
-}
+            font-family: "Playfair Display", serif;
 
-.photo-info{
-    position:absolute;
+            font-size: 28px;
 
-    bottom:0;
-    left:0;
-    right:0;
+            line-height: .95;
+        }
 
-    padding:40px 25px 25px;
+        .experience-badge {
+            position: absolute;
 
-    background:linear-gradient(
-        transparent,
-        rgba(0,0,0,.75)
-    );
+            right: 0;
+            top: 55px;
 
-    color:white;
-}
+            width: 92px;
+            height: 92px;
 
-.photo-info small{
-    color:var(--gold);
+            display: flex;
+            align-items: center;
+            justify-content: center;
 
-    font-size:9px;
-    letter-spacing:2px;
-    text-transform:uppercase;
-}
+            background: var(--gold);
 
-.photo-info h3{
-    margin-top:5px;
+            color: var(--wine);
 
-    font-family:'Cormorant Garamond',serif;
-    font-size:27px;
-}
+            border-radius: 50%;
 
-.carousel-controls{
-    display:flex;
-    gap:10px;
-}
+            text-align: center;
 
-.arrow{
-    width:48px;
-    height:48px;
+            font-size: 7px;
 
-    border:1px solid rgba(107,20,38,.25);
+            line-height: 1.5;
 
-    background:white;
+            letter-spacing: 1px;
 
-    color:var(--wine);
+            text-transform: uppercase;
 
-    cursor:pointer;
+            transform: rotate(10deg);
+        }
 
-    transition:.3s;
-}
+        /* ==============================
+           NÚMEROS
+        ============================== */
 
-.arrow:hover{
-    background:var(--wine);
-    color:white;
-}
+        .stats {
+            padding: 30px 6%;
 
-/* =========================
-   DEPOIMENTOS
-========================= */
+            display: grid;
 
-.reviews{
-    padding:110px 8%;
+            grid-template-columns: repeat(3, 1fr);
 
-    background:var(--nude);
-}
+            background: var(--wine);
 
-.review-carousel{
-    display:flex;
-    gap:20px;
+            color: white;
+        }
 
-    overflow-x:auto;
+        .stat {
+            padding: 15px;
 
-    scrollbar-width:none;
+            text-align: center;
 
-    padding-bottom:20px;
-}
+            border-right: 1px solid rgba(255,255,255,.15);
+        }
 
-.review-carousel::-webkit-scrollbar{
-    display:none;
-}
+        .stat:last-child {
+            border-right: none;
+        }
 
-.review{
-    min-width:380px;
-    min-height:340px;
+        .stat-number {
+            color: var(--gold);
 
-    background:white;
+            font-family: "Playfair Display", serif;
 
-    padding:35px;
+            font-size: 40px;
+        }
 
-    display:flex;
-    flex-direction:column;
-    justify-content:space-between;
+        .stat-label {
+            display: block;
 
-    border:1px solid rgba(107,20,38,.08);
-}
+            margin-top: 3px;
 
-.stars{
-    color:var(--gold);
+            font-size: 7px;
 
-    letter-spacing:3px;
-}
+            letter-spacing: 1.5px;
 
-.review p{
-    color:var(--navy);
+            text-transform: uppercase;
 
-    font-family:'Cormorant Garamond',serif;
-    font-size:25px;
-    line-height:1.35;
-}
+            opacity: .75;
+        }
 
-.review small{
-    color:var(--wine);
+        /* ==============================
+           MANIFESTO
+        ============================== */
 
-    font-size:9px;
-    letter-spacing:2px;
-    text-transform:uppercase;
-    font-weight:700;
-}
+        .manifesto {
+            padding: 140px 7%;
 
-/* =========================
-   CTA
-========================= */
+            text-align: center;
 
-.cta{
-    position:relative;
+            position: relative;
+        }
 
-    padding:125px 8%;
+        .manifesto::before {
+            content: "“";
 
-    background:var(--wine);
+            position: absolute;
 
-    color:white;
+            top: 45px;
+            left: 6%;
 
-    text-align:center;
+            color: var(--nude);
 
-    overflow:hidden;
-}
+            font-family: "Playfair Display", serif;
 
-.cta::before{
-    content:"LAÍS";
+            font-size: 190px;
+        }
 
-    position:absolute;
+        .gold-line {
+            width: 38px;
+            height: 2px;
 
-    right:-20px;
-    bottom:-110px;
+            margin: 0 auto 25px;
 
-    color:rgba(255,255,255,.04);
+            background: var(--gold);
+        }
 
-    font-family:'Cormorant Garamond',serif;
-    font-size:300px;
-}
+        .manifesto h2 {
+            max-width: 900px;
 
-.cta-content{
-    position:relative;
-    z-index:2;
+            margin: auto;
 
-    max-width:760px;
+            color: var(--wine);
 
-    margin:auto;
-}
+            font-family: "Playfair Display", serif;
 
-.cta .section-label{
-    color:var(--gold);
-}
+            font-size: clamp(45px, 6vw, 75px);
 
-.cta h2{
-    margin-top:18px;
+            line-height: .95;
 
-    font-family:'Cormorant Garamond',serif;
-    font-size:clamp(48px,6vw,76px);
-    line-height:.9;
-    font-weight:500;
-}
+            font-weight: 500;
+        }
 
-.cta p{
-    margin:25px auto 35px;
+        .manifesto h2 em {
+            color: var(--gold);
+        }
 
-    max-width:570px;
+        .manifesto p {
+            max-width: 620px;
 
-    color:rgba(255,255,255,.75);
+            margin: 25px auto 0;
 
-    font-size:13px;
-    line-height:1.9;
-}
+            color: var(--muted);
 
-/* =========================
-   CONTATO
-========================= */
+            font-size: 11px;
 
-.contact{
-    padding:110px 8%;
+            line-height: 2;
+        }
 
-    background:var(--cream);
+        /* ==============================
+           SOBRE
+        ============================== */
 
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:80px;
-}
+        .about {
+            padding: 110px 7%;
 
-.contact h2{
-    margin-top:15px;
+            background: #F6E9E3;
 
-    color:var(--navy);
+            border-radius: 80px 80px 0 0;
 
-    font-family:'Cormorant Garamond',serif;
-    font-size:clamp(45px,5vw,68px);
-    font-weight:500;
-    line-height:.95;
-}
+            display: grid;
 
-.contact-list{
-    margin-top:45px;
-}
+            grid-template-columns: 1fr 1fr;
 
-.contact-item{
-    padding:20px 0;
+            align-items: center;
 
-    border-bottom:1px solid rgba(107,20,38,.12);
-}
+            gap: 90px;
+        }
 
-.contact-item small{
-    display:block;
+        .about-image {
+            height: 560px;
 
-    margin-bottom:7px;
+            overflow: hidden;
 
-    color:var(--gold);
+            background: var(--nude);
 
-    font-size:9px;
-    letter-spacing:2px;
-    text-transform:uppercase;
-    font-weight:700;
-}
+            border-radius: 35px 70px 70px 70px;
+        }
 
-.contact-item a,
-.contact-item span{
-    color:#3d3738;
+        .about-image img {
+            width: 100%;
+            height: 100%;
 
-    font-size:13px;
-    line-height:1.7;
-}
+            object-fit: cover;
+        }
 
-.location{
-    min-height:430px;
+        .about-text small {
+            color: var(--gold);
 
-    background:var(--nude);
+            font-size: 8px;
 
-    padding:55px;
+            letter-spacing: 3px;
 
-    display:flex;
-    align-items:center;
-    justify-content:center;
+            text-transform: uppercase;
+        }
 
-    text-align:center;
+        .about-text h2 {
+            margin: 20px 0 25px;
 
-    position:relative;
-}
+            color: var(--wine);
 
-.location::before{
-    content:"";
+            font-family: "Playfair Display", serif;
 
-    position:absolute;
+            font-size: 68px;
 
-    inset:20px;
+            line-height: .87;
 
-    border:1px solid rgba(197,160,89,.7);
-}
+            font-weight: 500;
+        }
 
-.location-content{
-    position:relative;
-    z-index:2;
-}
+        .about-text h2 em {
+            color: var(--gold);
+        }
 
-.location h3{
-    color:var(--wine);
+        .about-text p {
+            max-width: 530px;
 
-    font-family:'Cormorant Garamond',serif;
-    font-size:48px;
-}
+            margin-bottom: 16px;
 
-.location p{
-    margin:18px 0 28px;
+            color: var(--muted);
 
-    color:#625858;
+            font-size: 11px;
 
-    font-size:13px;
-    line-height:1.8;
-}
+            line-height: 2;
+        }
 
-/* =========================
-   FOOTER
-========================= */
+        .signature {
+            display: inline-block;
 
-footer{
-    padding:35px 20px;
+            margin-top: 18px;
 
-    background:#21171A;
+            padding: 11px 18px;
 
-    text-align:center;
+            background: var(--off-white);
 
-    color:white;
-}
+            border-radius: 100px;
 
-footer .logo{
-    font-size:25px;
-}
+            color: var(--wine);
 
-footer p{
-    margin-top:8px;
+            font-family: "Playfair Display", serif;
 
-    color:rgba(255,255,255,.45);
+            font-size: 20px;
+        }
 
-    font-size:9px;
-    letter-spacing:1.5px;
-    text-transform:uppercase;
-}
+        /* ==============================
+           PROCEDIMENTOS
+        ============================== */
 
-/* =========================
-   WHATSAPP
-========================= */
+        .procedures {
+            padding: 130px 7%;
+        }
 
-.whatsapp{
-    position:fixed;
+        .section-heading {
+            max-width: 720px;
 
-    right:23px;
-    bottom:23px;
+            margin: 0 auto 65px;
 
-    width:60px;
-    height:60px;
+            text-align: center;
+        }
 
-    display:flex;
-    align-items:center;
-    justify-content:center;
+        .section-heading small {
+            color: var(--gold);
 
-    background:var(--wine);
+            font-size: 8px;
 
-    color:white;
+            letter-spacing: 3px;
 
-    border-radius:50%;
+            text-transform: uppercase;
+        }
 
-    z-index:100;
+        .section-heading h2 {
+            margin-top: 17px;
 
-    box-shadow:0 12px 35px rgba(107,20,38,.3);
+            color: var(--wine);
 
-    transition:.3s;
-}
+            font-family: "Playfair Display", serif;
 
-.whatsapp:hover{
-    transform:scale(1.08) translateY(-3px);
-}
+            font-size: clamp(48px, 6vw, 76px);
 
-/* =========================
-   ANIMAÇÕES
-========================= */
+            line-height: .9;
 
-.reveal{
-    opacity:0;
-    transform:translateY(35px);
+            font-weight: 500;
+        }
 
-    transition:1s ease;
-}
+        .section-heading h2 em {
+            color: var(--gold);
+        }
 
-.reveal.active{
-    opacity:1;
-    transform:translateY(0);
-}
+        .section-heading p {
+            margin-top: 20px;
 
-@keyframes fadeUp{
+            color: var(--muted);
 
-    from{
-        opacity:0;
-        transform:translateY(25px);
-    }
+            font-size: 11px;
 
-    to{
-        opacity:1;
-        transform:translateY(0);
-    }
+            line-height: 1.9;
+        }
 
-}
+        .procedure-grid {
+            max-width: 1050px;
 
-/* =========================
-   MOBILE
-========================= */
+            margin: auto;
 
-@media(max-width:900px){
+            display: grid;
 
-    header{
-        padding:20px 6%;
-    }
+            grid-template-columns: repeat(2,1fr);
 
-    nav{
-        display:none;
-    }
+            gap: 15px;
+        }
 
-    .hero{
-        min-height:850px;
+        .procedure-card {
+            min-height: 250px;
 
-        background-position:65% center;
-    }
+            padding: 32px;
 
-    .hero-content{
-        padding:120px 5% 160px;
-    }
+            background: #F7F3F1;
 
-    .hero h1{
-        font-size:55px;
-    }
+            border: 1px solid rgba(107,20,38,.06);
 
-    .stats{
-        right:5%;
-        left:5%;
+            border-radius: 30px;
 
-        justify-content:center;
-    }
+            position: relative;
 
-    .stat{
-        min-width:0;
-        width:33.33%;
-        padding:18px 8px;
-    }
+            overflow: hidden;
 
-    .stat strong{
-        font-size:27px;
-    }
+            transition: .4s;
+        }
 
-    .stat span{
-        font-size:7px;
-    }
+        .procedure-card:nth-child(2) {
+            border-radius: 60px 30px 60px 30px;
+        }
 
-    .intro,
-    .contact{
-        grid-template-columns:1fr;
-        gap:50px;
-    }
+        .procedure-card:nth-child(3) {
+            border-radius: 30px 60px 30px 60px;
+        }
 
-    .service-grid{
-        grid-template-columns:1fr;
-    }
+        .procedure-card:nth-child(4) {
+            border-radius: 60px 30px 30px 60px;
+        }
 
-    .gallery-top{
-        align-items:start;
-        flex-direction:column;
-    }
+        .procedure-card:hover {
+            transform: translateY(-7px);
 
-    .photo-card{
-        min-width:82vw;
-        height:430px;
-    }
+            background: #F2E1DA;
 
-    .review{
-        min-width:82vw;
-    }
+            box-shadow: 0 20px 50px rgba(107,20,38,.08);
+        }
 
-}
+        .procedure-number {
+            color: var(--gold);
 
-@media(max-width:500px){
+            font-family: "Playfair Display", serif;
 
-    .hero h1{
-        font-size:48px;
-    }
+            font-size: 28px;
+        }
 
-    .hero-description{
-        font-size:13px;
-    }
+        .procedure-card h3 {
+            margin-top: 35px;
 
-    .hero-buttons .btn{
-        width:100%;
-    }
+            color: var(--wine);
 
-    .stats{
-        bottom:0;
-    }
+            font-family: "Playfair Display", serif;
 
-    .stat strong{
-        font-size:24px;
-    }
+            font-size: 31px;
 
-    .intro,
-    .services,
-    .gallery,
-    .reviews,
-    .cta,
-    .contact{
-        padding-left:6%;
-        padding-right:6%;
-    }
+            font-weight: 500;
+        }
 
-}
+        .procedure-card p {
+            max-width: 400px;
 
-</style>
+            margin-top: 8px;
+
+            color: var(--muted);
+
+            font-size: 9px;
+
+            line-height: 1.8;
+        }
+
+        .procedure-symbol {
+            position: absolute;
+
+            right: 25px;
+            bottom: 15px;
+
+            color: rgba(197,160,89,.25);
+
+            font-family: "Playfair Display", serif;
+
+            font-size: 75px;
+        }
+
+        /* ==============================
+           RESULTADOS
+        ============================== */
+
+        .results {
+            padding: 120px 0;
+
+            background: var(--wine);
+
+            border-radius: 80px 80px 0 0;
+
+            overflow: hidden;
+        }
+
+        .results .section-heading {
+            padding: 0 6%;
+        }
+
+        .results .section-heading h2 {
+            color: white;
+        }
+
+        .results .section-heading p {
+            color: rgba(255,255,255,.65);
+        }
+
+        .carousel {
+            display: flex;
+
+            gap: 20px;
+
+            padding: 0 7%;
+
+            margin-top: 55px;
+
+            overflow-x: auto;
+
+            scrollbar-width: none;
+
+            scroll-behavior: smooth;
+        }
+
+        .carousel::-webkit-scrollbar {
+            display: none;
+        }
+
+        .result-card {
+            flex: 0 0 400px;
+
+            height: 500px;
+
+            overflow: hidden;
+
+            background: var(--nude);
+
+            border-radius: 40px 70px 40px 70px;
+        }
+
+        .result-card:nth-child(even) {
+            border-radius: 70px 40px 70px 40px;
+        }
+
+        .result-card img {
+            width: 100%;
+            height: 100%;
+
+            object-fit: cover;
+        }
+
+        .result-placeholder {
+            width: 100%;
+            height: 100%;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            text-align: center;
+
+            background: linear-gradient(
+                145deg,
+                #EFD8CF,
+                #D5AA99
+            );
+        }
+
+        .result-placeholder-inner {
+            padding: 45px 25px;
+
+            border: 1px dashed var(--wine);
+
+            border-radius: 40px;
+
+            color: var(--wine);
+        }
+
+        .result-placeholder-inner strong {
+            display: block;
+
+            color: var(--gold);
+
+            font-family: "Playfair Display", serif;
+
+            font-size: 42px;
+        }
+
+        .result-placeholder-inner span {
+            font-size: 8px;
+
+            letter-spacing: 1.5px;
+        }
+
+        .carousel-controls {
+            display: flex;
+
+            justify-content: center;
+
+            gap: 8px;
+
+            margin-top: 28px;
+        }
+
+        .carousel-button {
+            width: 47px;
+            height: 47px;
+
+            border: 1px solid rgba(255,255,255,.5);
+
+            border-radius: 50%;
+
+            background: transparent;
+
+            color: white;
+
+            cursor: pointer;
+
+            transition: .3s;
+        }
+
+        .carousel-button:hover {
+            background: white;
+
+            color: var(--wine);
+        }
+
+        /* ==============================
+           AVALIAÇÕES
+        ============================== */
+
+        .reviews {
+            padding: 125px 0;
+
+            overflow: hidden;
+        }
+
+        .review-carousel {
+            display: flex;
+
+            gap: 18px;
+
+            padding: 0 7%;
+
+            margin-top: 55px;
+
+            overflow-x: auto;
+
+            scrollbar-width: none;
+        }
+
+        .review-carousel::-webkit-scrollbar {
+            display: none;
+        }
+
+        .review-card {
+            flex: 0 0 340px;
+
+            height: 450px;
+
+            padding: 9px;
+
+            background: #F2E2DC;
+
+            border-radius: 35px;
+        }
+
+        .review-card:nth-child(even) {
+            border-radius: 60px 35px 60px 35px;
+        }
+
+        .review-card img {
+            width: 100%;
+            height: 100%;
+
+            object-fit: contain;
+
+            background: white;
+
+            border-radius: inherit;
+        }
+
+        .review-placeholder {
+            width: 100%;
+            height: 100%;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            text-align: center;
+
+            background: white;
+
+            border: 1px dashed var(--gold);
+
+            border-radius: inherit;
+
+            color: var(--wine);
+        }
+
+        .review-placeholder strong {
+            display: block;
+
+            font-family: "Playfair Display", serif;
+
+            font-size: 30px;
+        }
+
+        .review-placeholder span {
+            display: block;
+
+            margin-top: 8px;
+
+            font-size: 8px;
+
+            letter-spacing: 1.5px;
+        }
+
+        /* ==============================
+           CTA
+        ============================== */
+
+        .cta {
+            margin: 0 4% 90px;
+
+            padding: 100px 6%;
+
+            background: var(--nude);
+
+            border-radius: 80px;
+
+            text-align: center;
+
+            position: relative;
+
+            overflow: hidden;
+        }
+
+        .cta::before,
+        .cta::after {
+            content: "";
+
+            position: absolute;
+
+            border: 1px solid rgba(107,20,38,.15);
+
+            border-radius: 50%;
+        }
+
+        .cta::before {
+            width: 350px;
+            height: 350px;
+
+            top: -220px;
+            left: -100px;
+        }
+
+        .cta::after {
+            width: 300px;
+            height: 300px;
+
+            right: -100px;
+            bottom: -180px;
+        }
+
+        .cta-content {
+            position: relative;
+
+            z-index: 2;
+
+            max-width: 700px;
+
+            margin: auto;
+        }
+
+        .cta small {
+            color: var(--wine);
+
+            font-size: 8px;
+
+            letter-spacing: 3px;
+        }
+
+        .cta h2 {
+            margin: 20px 0;
+
+            color: var(--wine);
+
+            font-family: "Playfair Display", serif;
+
+            font-size: clamp(50px, 6vw, 78px);
+
+            line-height: .88;
+
+            font-weight: 500;
+        }
+
+        .cta h2 em {
+            color: var(--gold);
+        }
+
+        .cta p {
+            max-width: 500px;
+
+            margin: auto auto 27px;
+
+            color: var(--muted);
+
+            font-size: 11px;
+
+            line-height: 1.9;
+        }
+
+        .cta-button {
+            display: inline-flex;
+
+            padding: 16px 23px;
+
+            background: var(--wine);
+
+            color: white;
+
+            border-radius: 100px;
+
+            font-size: 8px;
+
+            letter-spacing: 1px;
+
+            text-transform: uppercase;
+
+            transition: .3s;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-4px);
+
+            box-shadow: 0 15px 30px rgba(107,20,38,.2);
+        }
+
+        /* ==============================
+           CONTATO
+        ============================== */
+
+        .contact {
+            padding: 100px 7% 120px;
+
+            background: #F6E9E3;
+
+            border-radius: 80px 80px 0 0;
+        }
+
+        .contact-grid {
+            max-width: 1050px;
+
+            margin: 50px auto 0;
+
+            display: grid;
+
+            grid-template-columns: repeat(3,1fr);
+
+            gap: 14px;
+        }
+
+        .contact-card {
+            min-height: 220px;
+
+            padding: 30px;
+
+            background: var(--off-white);
+
+            border-radius: 30px;
+
+            transition: .3s;
+        }
+
+        .contact-card:nth-child(2) {
+            border-radius: 55px 30px 55px 30px;
+        }
+
+        .contact-card:nth-child(3) {
+            border-radius: 30px 55px 30px 55px;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-5px);
+
+            box-shadow: 0 20px 40px rgba(107,20,38,.07);
+        }
+
+        .contact-card small {
+            color: var(--gold);
+
+            font-size: 8px;
+
+            letter-spacing: 2px;
+        }
+
+        .contact-card h3 {
+            margin: 15px 0;
+
+            color: var(--wine);
+
+            font-family: "Playfair Display", serif;
+
+            font-size: 31px;
+
+            font-weight: 500;
+        }
+
+        .contact-card p,
+        .contact-card a {
+            color: var(--muted);
+
+            font-size: 9px;
+
+            line-height: 1.9;
+        }
+
+        .contact-card a {
+            display: block;
+
+            margin-bottom: 5px;
+
+            transition: .3s;
+        }
+
+        .contact-card a:hover {
+            color: var(--wine);
+        }
+
+        /* ==============================
+           FOOTER
+        ============================== */
+
+        footer {
+            padding: 30px 7%;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            background: #350B16;
+
+            color: white;
+        }
+
+        .footer-name {
+            font-family: "Playfair Display", serif;
+
+            font-size: 24px;
+        }
+
+        footer p {
+            font-size: 7px;
+
+            opacity: .55;
+        }
+
+        /* ==============================
+           WHATSAPP
+        ============================== */
+
+        .whatsapp {
+            position: fixed;
+
+            right: 22px;
+            bottom: 22px;
+
+            width: 60px;
+            height: 60px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background: var(--wine);
+
+            color: white;
+
+            border-radius: 50%;
+
+            font-size: 7px;
+
+            letter-spacing: .5px;
+
+            text-transform: uppercase;
+
+            box-shadow: 0 15px 35px rgba(0,0,0,.2);
+
+            animation: pulse 3s infinite;
+
+            z-index: 2000;
+
+            transition: .3s;
+        }
+
+        .whatsapp:hover {
+            transform: scale(1.08);
+        }
+
+        .mobile-bar {
+            display: none;
+        }
+
+        /* ==============================
+           RESPONSIVO
+        ============================== */
+
+        @media(max-width: 900px) {
+
+            .nav {
+                display: none;
+            }
+
+            .hero {
+                grid-template-columns: 1fr;
+            }
+
+            .about {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media(max-width: 600px) {
+
+            body {
+                padding-bottom: 65px;
+            }
+
+            header {
+                top: 10px;
+                height: 62px;
+
+                border-radius: 20px;
+            }
+
+            .logo-name {
+                font-size: 16px;
+            }
+
+            .header-button {
+                padding: 10px 13px;
+
+                font-size: 7px;
+            }
+
+            .hero {
+                padding: 105px 6% 60px;
+
+                gap: 50px;
+            }
+
+            .hero h1 {
+                font-size: 60px;
+
+                letter-spacing: -2px;
+            }
+
+            .hero-actions {
+                flex-wrap: wrap;
+            }
+
+            .hero-image-area {
+                height: 500px;
+            }
+
+            .doctor-image {
+                width: 85%;
+
+                right: 2%;
+            }
+
+            .experience-card {
+                width: 175px;
+
+                padding: 18px;
+
+                bottom: 25px;
+            }
+
+            .experience-card strong {
+                font-size: 23px;
+            }
+
+            .experience-badge {
+                width: 70px;
+                height: 70px;
+
+                font-size: 6px;
+            }
+
+            .stats {
+                grid-template-columns: 1fr;
+
+                padding: 15px 6%;
+            }
+
+            .stat {
+                border-right: none;
+
+                border-bottom: 1px solid rgba(255,255,255,.15);
+            }
+
+            .stat:last-child {
+                border-bottom: none;
+            }
+
+            .manifesto {
+                padding: 90px 6%;
+            }
+
+            .manifesto h2 {
+                font-size: 48px;
+            }
+
+            .about {
+                padding: 85px 6%;
+
+                border-radius: 55px 55px 0 0;
+            }
+
+            .about-image {
+                height: 420px;
+            }
+
+            .about-text h2 {
+                font-size: 55px;
+            }
+
+            .procedures {
+                padding: 90px 6%;
+            }
+
+            .procedure-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .results {
+                padding: 90px 0;
+
+                border-radius: 55px 55px 0 0;
+            }
+
+            .result-card {
+                flex-basis: 82vw;
+
+                height: 440px;
+            }
+
+            .reviews {
+                padding: 90px 0;
+            }
+
+            .review-card {
+                flex-basis: 82vw;
+
+                height: 420px;
+            }
+
+            .cta {
+                margin: 0 4% 65px;
+
+                padding: 80px 6%;
+
+                border-radius: 55px;
+            }
+
+            .contact {
+                padding: 80px 6%;
+
+                border-radius: 55px 55px 0 0;
+            }
+
+            footer {
+                flex-direction: column;
+
+                gap: 12px;
+
+                text-align: center;
+            }
+
+            .whatsapp {
+                right: 17px;
+                bottom: 80px;
+            }
+
+            .mobile-bar {
+                display: block;
+
+                position: fixed;
+
+                left: 0;
+                bottom: 0;
+
+                width: 100%;
+
+                padding: 9px;
+
+                background: rgba(250,250,250,.95);
+
+                backdrop-filter: blur(15px);
+
+                box-shadow: 0 -10px 30px rgba(0,0,0,.1);
+
+                z-index: 1900;
+            }
+
+            .mobile-bar a {
+                display: block;
+
+                padding: 14px;
+
+                background: var(--wine);
+
+                color: white;
+
+                border-radius: 100px;
+
+                text-align: center;
+
+                font-size: 8px;
+
+                letter-spacing: 1px;
+
+                text-transform: uppercase;
+            }
+        }
+
+    </style>
 </head>
-
 
 <body>
 
-
-<!-- =========================
+<!-- ==========================================
      HEADER
-========================= -->
+========================================== -->
 
 <header>
 
-    <div class="logo">
-        Dra. Laís <span>Santiago</span>
-    </div>
+    <a href="#" class="logo">
 
-    <nav>
-        <a href="#servicos">Serviços</a>
+        <div class="logo-symbol">
+            LS
+        </div>
+
+        <div class="logo-name">
+            Dra. Laís Santiago
+        </div>
+
+    </a>
+
+    <nav class="nav">
+
+        <a href="#sobre">Sobre</a>
+
+        <a href="#procedimentos">Procedimentos</a>
+
         <a href="#resultados">Resultados</a>
+
         <a href="#avaliacoes">Avaliações</a>
+
         <a href="#contato">Contato</a>
+
     </nav>
+
+    <a
+        href="https://wa.me/5511978368185"
+        target="_blank"
+        class="header-button">
+
+        Agendar avaliação
+
+    </a>
 
 </header>
 
 
-<!-- =========================
+<!-- ==========================================
      HERO
-========================= -->
+========================================== -->
 
 <section class="hero">
 
-    <div class="hero-content">
+    <div class="hero-content reveal">
 
-        <div class="hero-small">
-            Estética & Harmonização • São Paulo
+        <div class="tag">
+
+            <span class="tag-dot"></span>
+
+            Estética & Harmonização
+
         </div>
 
         <h1>
-            Dra. Laís Santiago —
-            <span>Especialista em Harmonização e Rejuvenescimento Facial.</span>
+
+            Sua beleza,
+            <span>do seu jeito.</span>
+
         </h1>
 
         <p class="hero-description">
-            Especialista em Harmonização e Rejuvenescimento Facial
-            com mais de 6 anos de experiência e
+
+            <strong>Dra. Laís Santiago</strong> — Especialista em
+            Harmonização e Rejuvenescimento Facial com mais de
+            <strong>6 anos de experiência</strong> e
             <strong>+525 mulheres transformadas.</strong>
+
         </p>
 
-        <div class="hero-buttons">
+        <div class="hero-actions">
 
             <a
-                href="https://wa.me/5511978368185?text=Olá%20Dra.%20Laís!%20Gostaria%20de%20agendar%20uma%20avaliação."
+                href="https://wa.me/5511978368185"
                 target="_blank"
-                class="btn btn-wine"
-            >
+                class="primary-button">
+
                 Agendar minha avaliação
+
+                <span>↗</span>
+
             </a>
 
             <a
                 href="#resultados"
-                class="btn btn-light"
-            >
-                Conhecer resultados
+                class="secondary-button">
+
+                Ver resultados
+
             </a>
 
         </div>
@@ -1092,21 +1730,60 @@ footer p{
     </div>
 
 
-    <div class="stats">
+    <div class="hero-image-area">
 
-        <div class="stat">
-            <strong>+6</strong>
-            <span>Anos de experiência</span>
+        <div class="doctor-image">
+
+            <!--
+                FOTO PRINCIPAL DA DOUTORA
+
+                Coloque sua foto em:
+                images/doutora.jpg
+            -->
+
+            <img
+                src="images/doutora.jpg"
+                alt="Dra. Laís Santiago"
+                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+            >
+
+            <div
+                class="doctor-placeholder"
+                style="display:none;">
+
+                <div class="doctor-placeholder-content">
+
+                    <strong>LS</strong>
+
+                    <span>
+                        FOTO DA DRA. LAÍS SANTIAGO
+                    </span>
+
+                </div>
+
+            </div>
+
         </div>
 
-        <div class="stat">
-            <strong>+525</strong>
-            <span>Mulheres transformadas</span>
+
+        <div class="experience-card">
+
+            <small>
+                Experiência
+            </small>
+
+            <strong>
+                +525 mulheres transformadas
+            </strong>
+
         </div>
 
-        <div class="stat">
-            <strong>SP</strong>
-            <span>São Paulo</span>
+
+        <div class="experience-badge">
+
+            +6 anos<br>
+            de experiência
+
         </div>
 
     </div>
@@ -1114,41 +1791,74 @@ footer p{
 </section>
 
 
-<!-- =========================
-     INTRO
-========================= -->
+<!-- ==========================================
+     ESTATÍSTICAS
+========================================== -->
 
-<section class="intro reveal">
+<section class="stats">
 
-    <div>
+    <div class="stat">
 
-        <div class="intro-label">
-            Beleza personalizada
+        <div class="stat-number">
+            +6
         </div>
 
-        <h2>
-            Naturalidade que valoriza quem você já é.
-        </h2>
+        <span class="stat-label">
+            Anos de experiência
+        </span>
 
     </div>
 
+    <div class="stat">
 
-    <div class="intro-text">
+        <div class="stat-number">
+            +525
+        </div>
+
+        <span class="stat-label">
+            Mulheres transformadas
+        </span>
+
+    </div>
+
+    <div class="stat">
+
+        <div class="stat-number">
+            SP
+        </div>
+
+        <span class="stat-label">
+            Chácara Santo Antônio
+        </span>
+
+    </div>
+
+</section>
+
+
+<!-- ==========================================
+     MANIFESTO
+========================================== -->
+
+<section class="manifesto">
+
+    <div class="reveal">
 
         <div class="gold-line"></div>
 
-        <p>
-            Cada rosto possui características únicas.
-            Por isso, a abordagem da Dra. Laís é baseada
-            em planejamento, equilíbrio e personalização.
-        </p>
+        <h2>
 
-        <br>
+            Harmonizar não é
+            apagar sua identidade.
+            <em>É valorizar o que já existe.</em>
+
+        </h2>
 
         <p>
-            O objetivo é realçar sua beleza respeitando
-            sua identidade e buscando resultados
-            elegantes e naturais.
+
+            Um atendimento personalizado, pensado para respeitar
+            seus traços, seus desejos e aquilo que faz você ser você.
+
         </p>
 
     </div>
@@ -1156,231 +1866,182 @@ footer p{
 </section>
 
 
-<!-- =========================
-     SERVIÇOS
-========================= -->
+<!-- ==========================================
+     SOBRE
+========================================== -->
 
-<section class="services reveal" id="servicos">
+<section
+    id="sobre"
+    class="about">
 
-    <div class="section-heading">
+    <div class="about-image reveal">
 
-        <div class="section-label">
-            Especialidades
-        </div>
+        <!-- FOTO OPCIONAL -->
+
+        <img
+            src="images/doutora-sobre.jpg"
+            alt="Dra. Laís Santiago"
+            onerror="this.style.display='none';"
+        >
+
+    </div>
+
+
+    <div class="about-text reveal">
+
+        <small>
+            Sobre a doutora
+        </small>
 
         <h2>
-            Cuidado pensado para cada detalhe.
+
+            Técnica,
+            cuidado &
+            <em>naturalidade.</em>
+
         </h2>
 
         <p>
-            Procedimentos e estratégias personalizadas
-            de acordo com as necessidades e objetivos
-            de cada paciente.
+
+            A Dra. Laís Santiago atua na área de estética,
+            harmonização e rejuvenescimento facial, buscando
+            proporcionar uma experiência individualizada para
+            cada paciente.
+
+        </p>
+
+        <p>
+
+            Cada rosto possui características únicas. Por isso,
+            o planejamento é feito de acordo com a estrutura,
+            necessidades e objetivos de cada pessoa.
+
+        </p>
+
+        <div class="signature">
+            Dra. Laís Santiago
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ==========================================
+     PROCEDIMENTOS
+========================================== -->
+
+<section
+    id="procedimentos"
+    class="procedures">
+
+    <div class="section-heading reveal">
+
+        <small>
+            Procedimentos
+        </small>
+
+        <h2>
+
+            Cuidado pensado
+            para <em>você.</em>
+
+        </h2>
+
+        <p>
+            Algumas das possibilidades de tratamentos realizados
+            de forma personalizada.
         </p>
 
     </div>
 
 
-    <div class="service-grid">
+    <div class="procedure-grid">
 
-        <div class="service">
 
-            <div class="service-number">
+        <div class="procedure-card reveal">
+
+            <span class="procedure-number">
                 01
-            </div>
+            </span>
 
             <h3>
                 Harmonização Facial
             </h3>
 
             <p>
-                Técnicas personalizadas para equilíbrio,
-                proporção e valorização dos traços faciais.
+                Planejamento individualizado para equilíbrio
+                e harmonia dos traços.
             </p>
+
+            <div class="procedure-symbol">
+                ◌
+            </div>
 
         </div>
 
 
-        <div class="service">
+        <div class="procedure-card reveal">
 
-            <div class="service-number">
+            <span class="procedure-number">
                 02
-            </div>
+            </span>
 
             <h3>
-                Rejuvenescimento
+                Preenchimento Facial
             </h3>
 
             <p>
-                Estratégias focadas em uma aparência
-                mais descansada, harmônica e rejuvenescida.
+                Técnicas voltadas à valorização dos contornos
+                e proporções faciais.
             </p>
+
+            <div class="procedure-symbol">
+                ○
+            </div>
 
         </div>
 
 
-        <div class="service">
+        <div class="procedure-card reveal">
 
-            <div class="service-number">
+            <span class="procedure-number">
                 03
-            </div>
+            </span>
 
             <h3>
-                Estética Facial
+                Rejuvenescimento Facial
             </h3>
 
             <p>
-                Cuidados individualizados para melhorar
-                a aparência e a qualidade da pele.
+                Estratégias para proporcionar uma aparência
+                rejuvenescida e natural.
             </p>
+
+            <div class="procedure-symbol">
+                ✦
+            </div>
 
         </div>
 
-    </div>
 
-</section>
+        <div class="procedure-card reveal">
 
+            <span class="procedure-number">
+                04
+            </span>
 
-<!-- =========================
-     RESULTADOS / CARROSSEL
-========================= -->
-
-<section class="gallery reveal" id="resultados">
-
-    <div class="gallery-top">
-
-        <div class="gallery-title">
-
-            <div class="section-label">
-                Resultados
-            </div>
-
-            <h2>
-                Veja de perto o trabalho da Dra. Laís.
-            </h2>
+            <h3>
+                Contorno Facial
+            </h3>
 
             <p>
-                Confira os procedimentos e resultados
-                apresentados pela clínica.
+                Valorização da estrutura e equilíbrio visual
+                do rosto.
             </p>
 
-        </div>
-
-
-        <div class="carousel-controls">
-
-            <button
-                class="arrow"
-                onclick="moveCarousel('results',-370)"
-            >
-                ←
-            </button>
-
-            <button
-                class="arrow"
-                onclick="moveCarousel('results',370)"
-            >
-                →
-            </button>
-
-        </div>
-
-    </div>
-
-
-    <div class="carousel" id="results">
-
-        <!--
-        TROQUE APENAS OS NOMES DAS IMAGENS
-        PELAS FOTOS QUE VOCÊ ANEXAR.
-
-        Não foram utilizadas imagens externas.
-        -->
-
-
-        <div class="photo-card">
-
-            <img
-                src="foto-servico-1.jpg"
-                alt="Resultado de procedimento"
-            >
-
-            <div class="photo-info">
-
-                <small>
-                    Procedimento
-                </small>
-
-                <h3>
-                    Harmonização Facial
-                </h3>
-
-            </div>
-
-        </div>
-
-
-        <div class="photo-card">
-
-            <img
-                src="foto-servico-2.jpg"
-                alt="Resultado de procedimento"
-            >
-
-            <div class="photo-info">
-
-                <small>
-                    Procedimento
-                </small>
-
-                <h3>
-                    Rejuvenescimento Facial
-                </h3>
-
-            </div>
-
-        </div>
-
-
-        <div class="photo-card">
-
-            <img
-                src="foto-servico-3.jpg"
-                alt="Resultado de procedimento"
-            >
-
-            <div class="photo-info">
-
-                <small>
-                    Procedimento
-                </small>
-
-                <h3>
-                    Estética Facial
-                </h3>
-
-            </div>
-
-        </div>
-
-
-        <div class="photo-card">
-
-            <img
-                src="foto-servico-4.jpg"
-                alt="Resultado de procedimento"
-            >
-
-            <div class="photo-info">
-
-                <small>
-                    Resultado
-                </small>
-
-                <h3>
-                    Beleza Personalizada
-                </h3>
-
+            <div class="procedure-symbol">
+                ∿
             </div>
 
         </div>
@@ -1390,76 +2051,423 @@ footer p{
 </section>
 
 
-<!-- =========================
-     AVALIAÇÕES
-========================= -->
+<!-- ==========================================
+     RESULTADOS
+========================================== -->
 
-<section class="reviews reveal" id="avaliacoes">
+<section
+    id="resultados"
+    class="results">
 
-    <div class="section-heading">
+    <div class="section-heading reveal">
 
-        <div class="section-label">
-            Experiência das pacientes
-        </div>
+        <small>
+            Resultados
+        </small>
 
         <h2>
-            Mais do que resultados.
-            Experiências.
+            Antes & <em>Depois</em>
         </h2>
 
         <p>
-            Avaliações das pacientes atendidas pela Dra. Laís.
+            Confira alguns resultados selecionados.
         </p>
 
     </div>
 
 
-    <div class="review-carousel" id="reviews">
-
-        <!--
-        AS IMAGENS DAS AVALIAÇÕES DEVEM SER
-        AS FOTOS ANEXADAS PELO CLIENTE.
-
-        SUBSTITUA OS ARQUIVOS ABAIXO.
-        -->
+    <div
+        class="carousel"
+        id="resultsCarousel">
 
 
-        <div class="photo-card">
+        <!-- RESULTADO 1 -->
+
+        <div class="result-card">
 
             <img
-                src="avaliacao-1.jpg"
-                alt="Avaliação de paciente"
+                src="images/resultado-1.jpg"
+                alt="Resultado antes e depois"
+                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
             >
+
+            <div
+                class="result-placeholder"
+                style="display:none;">
+
+                <div class="result-placeholder-inner">
+
+                    <strong>01</strong>
+
+                    <span>
+                        ADICIONE AQUI O ANTES E DEPOIS
+                    </span>
+
+                </div>
+
+            </div>
 
         </div>
 
 
-        <div class="photo-card">
+        <!-- RESULTADO 2 -->
+
+        <div class="result-card">
 
             <img
-                src="avaliacao-2.jpg"
-                alt="Avaliação de paciente"
+                src="images/resultado-2.jpg"
+                alt="Resultado antes e depois"
+                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
             >
+
+            <div
+                class="result-placeholder"
+                style="display:none;">
+
+                <div class="result-placeholder-inner">
+
+                    <strong>02</strong>
+
+                    <span>
+                        ADICIONE AQUI O ANTES E DEPOIS
+                    </span>
+
+                </div>
+
+            </div>
 
         </div>
 
 
-        <div class="photo-card">
+        <!-- RESULTADO 3 -->
+
+        <div class="result-card">
 
             <img
-                src="avaliacao-3.jpg"
-                alt="Avaliação de paciente"
+                src="images/resultado-3.jpg"
+                alt="Resultado antes e depois"
+                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
             >
+
+            <div
+                class="result-placeholder"
+                style="display:none;">
+
+                <div class="result-placeholder-inner">
+
+                    <strong>03</strong>
+
+                    <span>
+                        ADICIONE AQUI O ANTES E DEPOIS
+                    </span>
+
+                </div>
+
+            </div>
 
         </div>
 
 
-        <div class="photo-card">
+        <!-- RESULTADO 4 -->
+
+        <div class="result-card">
 
             <img
-                src="avaliacao-4.jpg"
-                alt="Avaliação de paciente"
+                src="images/resultado-4.jpg"
+                alt="Resultado antes e depois"
+                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
             >
+
+            <div
+                class="result-placeholder"
+                style="display:none;">
+
+                <div class="result-placeholder-inner">
+
+                    <strong>04</strong>
+
+                    <span>
+                        ADICIONE AQUI O ANTES E DEPOIS
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="carousel-controls">
+
+        <button
+            class="carousel-button"
+            onclick="moveCarousel('resultsCarousel', -1)">
+
+            ←
+
+        </button>
+
+        <button
+            class="carousel-button"
+            onclick="moveCarousel('resultsCarousel', 1)">
+
+            →
+
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- ==========================================
+     AVALIAÇÕES
+========================================== -->
+
+<section
+    id="avaliacoes"
+    class="reviews">
+
+    <div class="section-heading reveal">
+
+        <small>
+            Experiências
+        </small>
+
+        <h2>
+
+            O que nossas
+            pacientes <em>dizem.</em>
+
+        </h2>
+
+        <p>
+            Avaliações e experiências de pacientes.
+        </p>
+
+    </div>
+
+
+    <div
+        class="review-carousel"
+        id="reviewsCarousel">
+
+
+        <!-- AVALIAÇÃO 1 -->
+
+        <div class="review-card">
+
+            <img
+                src="images/avaliacao-1.jpg"
+                alt="Avaliação de paciente"
+                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+            >
+
+            <div
+                class="review-placeholder"
+                style="display:none;">
+
+                <div>
+
+                    <strong>
+                        Avaliação 01
+                    </strong>
+
+                    <span>
+                        ADICIONE A FOTO AQUI
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- AVALIAÇÃO 2 -->
+
+        <div class="review-card">
+
+            <img
+                src="images/avaliacao-2.jpg"
+                alt="Avaliação de paciente"
+                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+            >
+
+            <div
+                class="review-placeholder"
+                style="display:none;">
+
+                <div>
+
+                    <strong>
+                        Avaliação 02
+                    </strong>
+
+                    <span>
+                        ADICIONE A FOTO AQUI
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- AVALIAÇÃO 3 -->
+
+        <div class="review-card">
+
+            <img
+                src="images/avaliacao-3.jpg"
+                alt="Avaliação de paciente"
+                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+            >
+
+            <div
+                class="review-placeholder"
+                style="display:none;">
+
+                <div>
+
+                    <strong>
+                        Avaliação 03
+                    </strong>
+
+                    <span>
+                        ADICIONE A FOTO AQUI
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- AVALIAÇÃO 4 -->
+
+        <div class="review-card">
+
+            <img
+                src="images/avaliacao-4.jpg"
+                alt="Avaliação de paciente"
+                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+            >
+
+            <div
+                class="review-placeholder"
+                style="display:none;">
+
+                <div>
+
+                    <strong>
+                        Avaliação 04
+                    </strong>
+
+                    <span>
+                        ADICIONE A FOTO AQUI
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- AVALIAÇÃO 5 -->
+
+        <div class="review-card">
+
+            <img
+                src="images/avaliacao-5.jpg"
+                alt="Avaliação de paciente"
+                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+            >
+
+            <div
+                class="review-placeholder"
+                style="display:none;">
+
+                <div>
+
+                    <strong>
+                        Avaliação 05
+                    </strong>
+
+                    <span>
+                        ADICIONE A FOTO AQUI
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- AVALIAÇÃO 6 -->
+
+        <div class="review-card">
+
+            <img
+                src="images/avaliacao-6.jpg"
+                alt="Avaliação de paciente"
+                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+            >
+
+            <div
+                class="review-placeholder"
+                style="display:none;">
+
+                <div>
+
+                    <strong>
+                        Avaliação 06
+                    </strong>
+
+                    <span>
+                        ADICIONE A FOTO AQUI
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- AVALIAÇÃO 7 -->
+
+        <div class="review-card">
+
+            <img
+                src="images/avaliacao-7.jpg"
+                alt="Avaliação de paciente"
+                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+            >
+
+            <div
+                class="review-placeholder"
+                style="display:none;">
+
+                <div>
+
+                    <strong>
+                        Avaliação 07
+                    </strong>
+
+                    <span>
+                        ADICIONE A FOTO AQUI
+                    </span>
+
+                </div>
+
+            </div>
 
         </div>
 
@@ -1468,33 +2476,40 @@ footer p{
 </section>
 
 
-<!-- =========================
+<!-- ==========================================
      CTA
-========================= -->
+========================================== -->
 
-<section class="cta reveal">
+<section class="cta">
 
-    <div class="cta-content">
+    <div class="cta-content reveal">
 
-        <div class="section-label">
-            Seu próximo passo
-        </div>
+        <small>
+            SEU PRÓXIMO PASSO
+        </small>
 
         <h2>
-            Vamos cuidar da sua melhor versão?
+
+            Talvez você não precise
+            mudar. Só precisa
+            <em>se valorizar.</em>
+
         </h2>
 
         <p>
-            Agende uma avaliação e converse com a equipe
+
+            Agende sua avaliação e converse com a Dra. Laís
             sobre seus objetivos e possibilidades.
+
         </p>
 
         <a
-            href="https://wa.me/5511978368185?text=Olá%20Dra.%20Laís!%20Gostaria%20de%20agendar%20uma%20avaliação."
+            href="https://wa.me/5511978368185"
             target="_blank"
-            class="btn btn-light"
-        >
+            class="cta-button">
+
             Quero agendar minha avaliação
+
         </a>
 
     </div>
@@ -1502,105 +2517,97 @@ footer p{
 </section>
 
 
-<!-- =========================
+<!-- ==========================================
      CONTATO
-========================= -->
+========================================== -->
 
-<section class="contact reveal" id="contato">
+<section
+    id="contato"
+    class="contact">
 
-    <div>
+    <div class="section-heading reveal">
 
-        <div class="section-label">
+        <small>
             Contato
-        </div>
+        </small>
 
         <h2>
-            Sua avaliação começa aqui.
+            Vamos conversar?
         </h2>
 
-
-        <div class="contact-list">
-
-            <div class="contact-item">
-
-                <small>
-                    WhatsApp / Telefone
-                </small>
-
-                <a href="tel:+5511978368185">
-                    (11) 97836-8185
-                </a>
-
-            </div>
-
-
-            <div class="contact-item">
-
-                <small>
-                    Telefone secundário
-                </small>
-
-                <a href="tel:+5511948720466">
-                    (11) 94872-0466
-                </a>
-
-            </div>
-
-
-            <div class="contact-item">
-
-                <small>
-                    E-mail
-                </small>
-
-                <a href="mailto:clinicaestetica.lv@gmail.com">
-                    clinicaestetica.lv@gmail.com
-                </a>
-
-            </div>
-
-
-            <div class="contact-item">
-
-                <small>
-                    Endereço
-                </small>
-
-                <span>
-                    R. Américo Brasiliense, 2171 -
-                    Chácara Santo Antônio,
-                    São Paulo - SP,
-                    04715-005
-                </span>
-
-            </div>
-
-        </div>
+        <p>
+            Entre em contato para agendar sua avaliação.
+        </p>
 
     </div>
 
 
-    <div class="location">
+    <div class="contact-grid">
 
-        <div class="location-content">
+
+        <div class="contact-card reveal">
+
+            <small>
+                WHATSAPP
+            </small>
 
             <h3>
-                São Paulo
+                Fale conosco
+            </h3>
+
+            <a href="tel:+5511978368185">
+                (11) 97836-8185
+            </a>
+
+            <a href="tel:+5511948720466">
+                (11) 94872-0466
+            </a>
+
+        </div>
+
+
+        <div class="contact-card reveal">
+
+            <small>
+                E-MAIL
+            </small>
+
+            <h3>
+                Contato
+            </h3>
+
+            <a href="mailto:clinicaestetica.lv@gmail.com">
+                clinicaestetica.lv@gmail.com
+            </a>
+
+        </div>
+
+
+        <div class="contact-card reveal">
+
+            <small>
+                CLÍNICA
+            </small>
+
+            <h3>
+                Onde estamos
             </h3>
 
             <p>
+
                 R. Américo Brasiliense, 2171<br>
                 Chácara Santo Antônio<br>
-                São Paulo — SP<br>
+                São Paulo - SP<br>
                 04715-005
+
             </p>
 
             <a
-                href="https://www.google.com/maps/search/?api=1&query=R.%20Am%C3%A9rico%20Brasiliense%202171%20Ch%C3%A1cara%20Santo%20Antônio%20São%20Paulo"
-                target="_blank"
-                class="btn btn-wine"
-            >
-                Ver localização
+                href="https://www.google.com/maps/search/?api=1&query=R.%20Am%C3%A9rico%20Brasiliense%2C%202171%20-%20Ch%C3%A1cara%20Santo%20Ant%C3%B4nio%2C%20S%C3%A3o%20Paulo"
+                target="_blank">
+
+                Ver localização →
+
             </a>
 
         </div>
@@ -1610,118 +2617,165 @@ footer p{
 </section>
 
 
-<!-- =========================
+<!-- ==========================================
      FOOTER
-========================= -->
+========================================== -->
 
 <footer>
 
-    <div class="logo">
-        Dra. Laís <span>Santiago</span>
+    <div class="footer-name">
+        Dra. Laís Santiago
     </div>
 
     <p>
-        Estética & Harmonização em São Paulo
+        © 2026 Dra. Laís Santiago • Estética & Harmonização
     </p>
 
 </footer>
 
 
-<!-- =========================
-     WHATSAPP
-========================= -->
+<!-- ==========================================
+     WHATSAPP FLUTUANTE
+========================================== -->
 
 <a
-    href="https://wa.me/5511978368185?text=Olá%20Dra.%20Laís!%20Gostaria%20de%20saber%20mais%20sobre%20os procedimentos."
+    href="https://wa.me/5511978368185"
     target="_blank"
-    class="whatsapp"
-    aria-label="WhatsApp"
->
-    ✆
+    class="whatsapp">
+
+    WhatsApp
+
 </a>
 
 
+<!-- ==========================================
+     BARRA MOBILE
+========================================== -->
+
+<div class="mobile-bar">
+
+    <a
+        href="https://wa.me/5511978368185"
+        target="_blank">
+
+        Agendar avaliação pelo WhatsApp
+
+    </a>
+
+</div>
+
+
+<!-- ==========================================
+     JAVASCRIPT
+========================================== -->
+
 <script>
 
-/* =========================
-   CARROSSEL
-========================= */
+    /* CARROSSEL */
 
-function moveCarousel(id, amount){
+    function moveCarousel(id, direction) {
 
-    const carousel =
-        document.getElementById(id);
+        const carousel = document.getElementById(id);
 
-    carousel.scrollBy({
-        left:amount,
-        behavior:'smooth'
-    });
+        if (!carousel) return;
 
-}
+        const amount =
+            window.innerWidth <= 600
+            ? carousel.clientWidth * .85
+            : 430;
 
+        carousel.scrollBy({
 
-/* =========================
-   ANIMAÇÃO AO ROLAR
-========================= */
+            left: amount * direction,
 
-const elements =
-    document.querySelectorAll('.reveal');
+            behavior: "smooth"
 
-function reveal(){
+        });
 
-    elements.forEach(element => {
-
-        const position =
-            element.getBoundingClientRect().top;
-
-        if(position < window.innerHeight - 100){
-
-            element.classList.add('active');
-
-        }
-
-    });
-
-}
-
-window.addEventListener('scroll',reveal);
-
-reveal();
+    }
 
 
-/* =========================
-   SWIPE MOBILE
-========================= */
+    /* ANIMAÇÕES AO ROLAR */
 
-document.querySelectorAll('.carousel, .review-carousel')
-.forEach(carousel => {
+    const observer = new IntersectionObserver(
 
-    let startX = 0;
+        entries => {
 
-    carousel.addEventListener('touchstart', e => {
+            entries.forEach(entry => {
 
-        startX = e.touches[0].clientX;
+                if (entry.isIntersecting) {
 
-    });
+                    entry.target.classList.add("active");
 
-    carousel.addEventListener('touchend', e => {
+                }
 
-        const endX = e.changedTouches[0].clientX;
-
-        const difference = startX - endX;
-
-        if(Math.abs(difference) > 50){
-
-            carousel.scrollBy({
-                left:difference,
-                behavior:'smooth'
             });
 
+        },
+
+        {
+            threshold: .12
         }
 
-    });
+    );
 
-});
+
+    document
+        .querySelectorAll(".reveal")
+        .forEach(element => {
+
+            observer.observe(element);
+
+        });
+
+
+    /* SWIPE NO CELULAR */
+
+    document
+        .querySelectorAll(".carousel, .review-carousel")
+        .forEach(carousel => {
+
+            let startX = 0;
+
+
+            carousel.addEventListener(
+                "touchstart",
+                event => {
+
+                    startX =
+                        event.touches[0].clientX;
+
+                }
+            );
+
+
+            carousel.addEventListener(
+                "touchend",
+                event => {
+
+                    const endX =
+                        event.changedTouches[0].clientX;
+
+                    const distance =
+                        startX - endX;
+
+
+                    if (Math.abs(distance) > 40) {
+
+                        carousel.scrollBy({
+
+                            left: distance,
+
+                            behavior: "smooth"
+
+                        });
+
+                    }
+
+                }
+            );
+
+        });
 
 </script>
 
